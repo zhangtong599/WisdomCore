@@ -1,9 +1,6 @@
 package com.javacore.wisdom.util;
 
-import static com.google.common.base.Strings.isNullOrEmpty;
-
 public final class StringUtil {
-	
 
 
 	public static boolean isNullOrWhitespace(final String str) {
@@ -19,6 +16,14 @@ public final class StringUtil {
 
 		return true;
 	}
-	
+
+	public static boolean isNullOrEmpty(final String str) {
+		return null == str || str.isEmpty();
+	}
+
+
+	public static String replaceVariable(final String string, final String name, final String value) {
+		return string.replace(String.format("${%s}", name), value);
+	}
 
 }
