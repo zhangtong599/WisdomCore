@@ -1,12 +1,24 @@
 package com.javacore.wisdom.util;
 
-import org.apache.log4j.Logger;
+import static com.google.common.base.Strings.isNullOrEmpty;
 
 public final class StringUtil {
 	
-	private  Logger logger=Logger.getLogger(StringUtil.class);
-	
-	
+
+
+	public static boolean isNullOrWhitespace(final String str) {
+		if (isNullOrEmpty(str)) {
+			return true;
+		}
+
+		for (int i = 0; i < str.length(); i++) {
+			if (!Character.isWhitespace(str.charAt(i))) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 	
 
 }
