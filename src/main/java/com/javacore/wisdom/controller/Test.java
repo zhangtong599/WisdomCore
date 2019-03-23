@@ -21,7 +21,7 @@ public class Test {
 	 */
 	
 	@RequestMapping("/")
-    public String greeting() {
+    public String TestInfo() {
 		
 		logger.info("test info\n");
         return NetConfigCache.netcgc.get("rpcport");
