@@ -70,6 +70,54 @@ public class ByteUtils {
         return (result ^ 0x01) & 0x01;
     }
 
+
+    /**
+     * byte array convert into hex string
+     *
+     * @param bytes
+     * @return convert to hex string and keep the bytes width
+     */
+    public static String bytesToHexString(byte[] bytes) {
+        if(bytes==null)
+            return "";
+        if(bytes.length==0)
+            return "";
+
+        StringBuffer result = new StringBuffer();
+        String hex;
+
+        for (int i = 0; i < bytes.length; i++) {
+            hex = Integer.toHexString(bytes[i] & 0xFF);
+            if (hex.length() == 1) {
+                hex = '0' + hex;
+            }
+            result.append(hex.toUpperCase());
+        }
+        return result.toString();
+    }
+
+
+    /**
+     * hex string convert into byte array
+     * @param hexString not include 0x prefix
+     * @return byte array
+     */
+    public static byte[] hexStringToBytes(String hexString){
+
+        if(StringUtil.isNullOrEmpty(hexString)){
+            return new byte[0];
+        }
+
+        int length=hexString.length()/2;
+        byte[] byteArray=new byte[length];
+        for(int i=0;i<length;i++){
+            byteArray[i]=(byte)Integer.valueOf(hexString.substring(i*2,i*2+2),16).byteValue();
+        }
+        return byteArray;
+    }
+
+
+
     /**
      * Constant-time check if byte is negative. The constant time behavior eliminates side channel attacks.
      *
