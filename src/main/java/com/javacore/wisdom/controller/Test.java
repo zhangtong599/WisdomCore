@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javacore.wisdom.cache.NetConfigCache;
-import com.javacore.wisdom.util.Utils;
+import com.javacore.wisdom.util.StringUtil;
 
 
 @RestController
 @Configuration
 public class Test {
 
-	private  Logger logger=Logger.getLogger(Utils.class);
+	private  Logger logger=Logger.getLogger(StringUtil.class);
 	
 	/*
 	 @Autowired
@@ -23,7 +23,7 @@ public class Test {
 	@RequestMapping("/")
     public String greeting() {
 		
-		logger.info("what are you doing?\n");
+		logger.info("test info\n");
         return NetConfigCache.netcgc.get("rpcport");
     }
 	
