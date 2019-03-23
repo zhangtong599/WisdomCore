@@ -1,5 +1,8 @@
 package com.javacore.wisdom.util;
 
+/**
+ * time unit
+ */
 public enum EnumTimeType {
     Year,
     Month,
