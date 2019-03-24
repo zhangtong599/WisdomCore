@@ -78,9 +78,9 @@ public class ByteUtils {
      * @return convert to hex string and keep the bytes width
      */
     public static String bytesToHexString(byte[] bytes) {
-        if(bytes==null)
+        if (bytes == null)
             return "";
-        if(bytes.length==0)
+        if (bytes.length == 0)
             return "";
 
         StringBuffer result = new StringBuffer();
@@ -99,22 +99,24 @@ public class ByteUtils {
 
     /**
      * hex string convert into byte array
+     *
      * @param hexString not include 0x prefix
      * @return byte array
      */
-    public static byte[] hexStringToBytes(String hexString){
+    public static byte[] hexStringToBytes(String hexString) {
 
-        if(StringUtil.isNullOrEmpty(hexString)){
+        if (StringUtil.isNullOrEmpty(hexString)) {
             return new byte[0];
         }
 
-        int length=hexString.length()/2;
-        byte[] byteArray=new byte[length];
-        for(int i=0;i<length;i++){
-            byteArray[i]=(byte)Integer.valueOf(hexString.substring(i*2,i*2+2),16).byteValue();
+        int length = hexString.length() / 2;
+        byte[] byteArray = new byte[length];
+        for (int i = 0; i < length; i++) {
+            byteArray[i] = (byte) Integer.valueOf(hexString.substring(i * 2, i * 2 + 2), 16).byteValue();
         }
         return byteArray;
     }
+
 
 
 
