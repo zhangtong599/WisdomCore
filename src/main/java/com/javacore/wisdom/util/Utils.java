@@ -44,26 +44,11 @@ public final class Utils {
     }
 
 
-    /**
-     * Create a new {@link Timestamp} instance based on the current time
-     *
-     * @return timestamp
-     */
-    public static Timestamp generateTimestamp() {
-        Instant time = Instant.now();
-        return Timestamp.newBuilder().setSeconds(time.getEpochSecond())
-                .setNanos(time.getNano()).build();
-    }
-
-
-
-    private static final int NONONCE_LENGTH = 32;
-
     private static final SecureRandom RANDOM = new SecureRandom();
 
-    public static byte[] generateNonce() {
+    public static byte[] generateNonce(final int NONCE_LENGTH) {
 
-        byte[] values = new byte[NONONCE_LENGTH];
+        byte[] values = new byte[NONCE_LENGTH];
         RANDOM.nextBytes(values);
 
         return values;
